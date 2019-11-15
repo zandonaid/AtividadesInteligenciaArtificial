@@ -3,7 +3,7 @@ package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.launcher;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.bfs.QuestaoBFS;
+import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.questoes.bfs.QuestaoBFS;
 import br.ufs.dcomp.eduard6.disciplinas.ia.common.questao.QuestaoExecutavel;
 
 public class Launcher {

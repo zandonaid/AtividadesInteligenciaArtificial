@@ -1,4 +1,4 @@
-package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.bfs;
+package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.questoes.bfs;
 
 import aima.core.agent.Action;
 import aima.core.agent.Agent;
