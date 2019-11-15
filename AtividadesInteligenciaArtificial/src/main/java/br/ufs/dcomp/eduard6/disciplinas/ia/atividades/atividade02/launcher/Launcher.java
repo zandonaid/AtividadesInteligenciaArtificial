@@ -1,4 +1,4 @@
-package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade01.launcher;
+package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.launcher;
 
 public class Launcher {
 	/**
