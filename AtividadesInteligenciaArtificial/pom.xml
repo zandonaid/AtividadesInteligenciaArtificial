@@ -25,13 +25,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.googlecode.aima-java/aima-core -->
-		<dependency>
-			<groupId>com.googlecode.aima-java</groupId>
-			<artifactId>aima-core</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
 		<dependency>
 			<groupId>org.openjfx</groupId>
