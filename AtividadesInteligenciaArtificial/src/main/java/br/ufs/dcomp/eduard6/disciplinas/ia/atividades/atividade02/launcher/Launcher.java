@@ -3,8 +3,8 @@ package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.launcher;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.QuestaoaAtividade02Base;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade02.questoes.bfs.QuestaoBFS;
-import br.ufs.dcomp.eduard6.disciplinas.ia.common.questao.QuestaoExecutavel;
 
 public class Launcher {
 	/**
@@ -13,7 +13,7 @@ public class Launcher {
 	 * Ponto de início da atividade.
 	 */
 	public static void main(String[] args) {
-		List<QuestaoExecutavel> listaDeQuestoes = new ArrayList<>(10);
+		List<QuestaoaAtividade02Base> listaDeQuestoes = new ArrayList<>(10);
 		
 		listaDeQuestoes.add(new QuestaoBFS());
 		
