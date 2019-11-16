@@ -5,6 +5,7 @@ import aima.core.environment.map.SimplifiedRoadMapOfRomania;
 import aima.core.environment.nqueens.NQueensBoard;
 import aima.core.environment.nqueens.NQueensFunctions;
 import aima.core.environment.nqueens.QueenAction;
+import aima.core.search.framework.Metrics;
 import aima.core.search.framework.problem.Problem;
 import br.ufs.dcomp.eduard6.disciplinas.ia.common.questao.QuestaoExecutavel;
 
@@ -38,18 +39,19 @@ public abstract class QuestaoaAtividade02Base extends QuestaoExecutavel {
 	 */
 	public static EightPuzzleBoard QUEBRA_CABECA_TABULEIRO = new EightPuzzleBoard(new int[] { 1, 2, 5, 3, 4, 0, 6, 7, 8 });
 	
-	public abstract void problemaDoCaixeiroViajante();
+	public abstract Metrics problemaDoCaixeiroViajante();
 	
-	public abstract void problemaDas8Rainhas();
+	public abstract Metrics problemaDas8Rainhas();
 	
-	public abstract void problemaDoQuebraCabeca();
+	public abstract Metrics problemaDoQuebraCabeca();
 	
 	@Override
 	public void execute() {
-		this.problemaDoCaixeiroViajante();
-		System.out.println();
-		this.problemaDas8Rainhas();
-		System.out.println();
-		this.problemaDoQuebraCabeca();
+		System.out.println("  Problema do caxeiro viajante: ");
+		System.out.println("    Custo: " + this.problemaDoCaixeiroViajante().toString());
+		System.out.println("\n  Problema das 8 Rainhas: ");
+		System.out.println("    Custo: " + this.problemaDas8Rainhas().toString());
+		System.out.println("\n  Problema do Quebra Cabeça: ");
+		System.out.println("    Custo: " + this.problemaDoQuebraCabeca().toString());
 	}
 }

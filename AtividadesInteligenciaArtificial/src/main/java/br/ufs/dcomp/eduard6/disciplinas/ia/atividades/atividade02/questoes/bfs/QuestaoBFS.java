@@ -12,6 +12,7 @@ import aima.core.environment.map.SimpleMapAgent;
 import aima.core.environment.map.SimplifiedRoadMapOfRomania;
 import aima.core.environment.nqueens.NQueensBoard;
 import aima.core.environment.nqueens.QueenAction;
+import aima.core.search.framework.Metrics;
 import aima.core.search.framework.SearchForActions;
 import aima.core.search.framework.problem.Problem;
 import aima.core.search.framework.qsearch.GraphSearch;
@@ -27,13 +28,11 @@ public class QuestaoBFS extends QuestaoaAtividade02Base {
 
 	@Override
 	public String getNome() {
-		return "Questão 1 - Breadth-first search";
+		return "Questão 3.4.1 Breadth-first search";
 	}
 	
 	@Override
-	public void problemaDoCaixeiroViajante() {
-		System.out.println("Problema do caxeiro viajante: ");
-		
+	public Metrics problemaDoCaixeiroViajante() {
 		ExtendableMap map = new ExtendableMap();
 		SimplifiedRoadMapOfRomania.initMap(map);
 		MapEnvironment env = new MapEnvironment(map);
@@ -49,26 +48,25 @@ public class QuestaoBFS extends QuestaoaAtividade02Base {
 
 		env.addAgent(agent, agentLoc);
 		env.stepUntilDone();
-		System.out.println("Custo: " + search.getMetrics().toString());
+		
+		return search.getMetrics();
 	}
 	
 	@Override
-	public void problemaDas8Rainhas() {
-		System.out.println("Problema das 8 Rainhas: ");
-
+	public Metrics problemaDas8Rainhas() {
 		Problem<NQueensBoard, QueenAction> problem = QuestaoaAtividade02Base.OITO_RAINHAS_PROBLEM;
 		SearchForActions<NQueensBoard, QueenAction> search = new BreadthFirstSearch<>(new GraphSearch<>());
 		search.findActions(problem);
-		System.out.println("Custo: " + search.getMetrics().toString());
+		
+		return search.getMetrics();
 	}
 	
 	@Override
-	public void problemaDoQuebraCabeca() {
-		System.out.println("Problema do Quebra Cabeça: ");
-		
+	public Metrics problemaDoQuebraCabeca() {
 		Problem<EightPuzzleBoard, Action> problem = new BidirectionalEightPuzzleProblem(QuestaoaAtividade02Base.QUEBRA_CABECA_TABULEIRO);
 		SearchForActions<EightPuzzleBoard, Action> search = new BreadthFirstSearch<EightPuzzleBoard, Action>();
 		search.findActions(problem);
-		System.out.println("Custo: " + search.getMetrics().toString());
+		
+		return search.getMetrics();
 	}
 }
