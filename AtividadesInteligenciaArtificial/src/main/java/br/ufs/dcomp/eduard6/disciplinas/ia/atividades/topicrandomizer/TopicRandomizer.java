@@ -29,7 +29,7 @@ public class TopicRandomizer {
     
     public static void main(String[] args) {
         Random rGenerator = new Random();
-        ArrayList<String> topicos = new ArrayList<>(Arrays.asList("3.4.1 e 3.4.2", "3.4.3", "3.4.4", "3.4.5"));
+        ArrayList<String> topicos = new ArrayList<>(Arrays.asList("4.1/1", "4.1/2", "4.2", "4.3"));
         for (Alunos aluno : Alunos.values()) {
             int t = rGenerator.nextInt(topicos.size());
             aluno.topico = topicos.get(t);
