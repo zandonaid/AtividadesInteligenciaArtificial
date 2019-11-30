@@ -12,7 +12,7 @@ public class TopicRandomizer {
 	 */
 
 	enum Alunos{
-        EDUARDO(), FELIPE(), MARIANA(), MATHEUS();
+        EDUARDO(), FELIPE(), MARIANA();
         public String topico;
 
         private Alunos(String topico) {
@@ -29,13 +29,17 @@ public class TopicRandomizer {
     
     public static void main(String[] args) {
         Random rGenerator = new Random();
-        ArrayList<String> topicos = new ArrayList<>(Arrays.asList("4.1/1", "4.1/2", "4.2", "4.3"));
+        ArrayList<String> topicos = new ArrayList<>(Arrays.asList("Best-first Search, Greedy best-first search, A* Search",
+        		"RBFS – Recursive best-first search, Hill-climbing search",
+        		"Simulated annealing, Genetic Algorithms"));
         for (Alunos aluno : Alunos.values()) {
             int t = rGenerator.nextInt(topicos.size());
             aluno.topico = topicos.get(t);
             topicos.remove(t);
         }
-        System.out.println(Arrays.toString(Alunos.values()));
+        Arrays.asList(Alunos.values()).forEach(s -> {
+        	System.out.println(s);
+        });
     }
 
 }
