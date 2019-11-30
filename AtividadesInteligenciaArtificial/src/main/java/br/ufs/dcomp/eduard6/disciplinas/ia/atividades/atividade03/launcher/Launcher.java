@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.QuestaoaAtividade03Base;
+import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.geneticalgorithm.QuestaoGeneticAlgorithm;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.simulatedannealin.QuestaoSimulatedAnnealing;
 
 /**
@@ -18,10 +19,11 @@ public class Launcher {
 	 * Ponto de início da atividade 03.
 	 */
 	public static void main(String[] args) {
-		List<QuestaoaAtividade03Base> listaDeQuestoes = new ArrayList<>(10);
+		List<QuestaoaAtividade03Base> listaDeQuestoes = new ArrayList<>(8);
 		
 		//Adicionar aqui as questões da atividade.
 		listaDeQuestoes.add(new QuestaoSimulatedAnnealing());
+		listaDeQuestoes.add(new QuestaoGeneticAlgorithm());
 		
 		System.out.println("-------------------------- Execução da Atividade 03 ---------------------------\n");
 		listaDeQuestoes.forEach(q -> {
