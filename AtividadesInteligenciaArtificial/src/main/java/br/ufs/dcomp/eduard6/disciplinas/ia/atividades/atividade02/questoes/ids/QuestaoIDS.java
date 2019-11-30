@@ -70,4 +70,22 @@ public class QuestaoIDS extends QuestaoaAtividade02Base {
 		search.findActions(problem);
 		System.out.println("Custo: " + search.getMetrics().toString());
 	}
+
+	@Override
+	public Metrics problemaDoCaixeiroViajante() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Metrics problemaDas8Rainhas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Metrics problemaDoQuebraCabeca() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
