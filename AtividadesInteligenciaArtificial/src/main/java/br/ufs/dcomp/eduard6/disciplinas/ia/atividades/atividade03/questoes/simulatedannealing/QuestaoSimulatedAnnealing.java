@@ -1,4 +1,4 @@
-package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.simulatedannealin;
+package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.simulatedannealing;
 
 import java.util.function.ToDoubleFunction;
 
