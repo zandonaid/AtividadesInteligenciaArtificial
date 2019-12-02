@@ -3,7 +3,6 @@ package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.gene
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
-
 import aima.core.environment.nqueens.NQueensGenAlgoUtil;
 import aima.core.search.framework.Metrics;
 import aima.core.search.local.FitnessFunction;
@@ -44,7 +43,19 @@ public class QuestaoGeneticAlgorithm extends QuestaoaAtividade03Base {
 
 	@Override
 	public Metrics problemaDoQuebraCabeca() {
-		return null;
+		FitnessFunction<Integer> fitnessFunctionMahattan = EightPuzzleGenAlgoUtil.getFitnessFunctionByManhattanDistance();
+		FitnessFunction<Integer> fitnessFunctionMissPlaced = EightPuzzleGenAlgoUtil.getFitnessFunctionByMissPlacedTiles();
+		
+		Set<Individual<Integer>> individualsPopulation = new HashSet<>();
+		for (int i = 0; i < 50; i++) {
+			individualsPopulation.add(EightPuzzleGenAlgoUtil.getRandomIndividual());
+		}
+		
+		GeneticAlgorithm<Integer> ga = new GeneticAlgorithm<Integer>(8, EightPuzzleGenAlgoUtil.getAlphabet(), 0.15);
+		
+		ga.geneticAlgorithm(individualsPopulation, fitnessFunctionMahattan, 0);
+		
+		return ga.getMetrics();
 	}
 
 	@Override
