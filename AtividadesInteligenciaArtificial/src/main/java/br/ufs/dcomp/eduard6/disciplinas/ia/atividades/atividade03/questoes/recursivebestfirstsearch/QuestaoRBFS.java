@@ -59,10 +59,15 @@ public class QuestaoRBFS extends QuestaoaAtividade03Base {
 	
 	@Override
 	public Metrics problemaDoQuebraCabeca() {
-		/*Problem<EightPuzzleBoard, Action> problem = new BidirectionalEightPuzzleProblem(QuestaoaAtividade03Base.QUEBRA_CABECA_TABULEIRO);
+		Problem<EightPuzzleBoard, Action> problem = new BidirectionalEightPuzzleProblem(QuestaoaAtividade03Base.QUEBRA_CABECA_TABULEIRO);
 
 		RecursiveBestFirstSearch<EightPuzzleBoard, Action> search = 
-				new RecursiveBestFirstSearch<EightPuzzleBoard, Action>(null);
+				new RecursiveBestFirstSearch<EightPuzzleBoard, Action>(new EvaluationFunction<EightPuzzleBoard, Action>() {
+				    @Override
+				    public double applyAsDouble(Node<EightPuzzleBoard, Action> value) {
+				        return EightPuzzleFunctions.getManhattanDistance(value);
+				    }
+                }, true);
 		
 		search.setHeuristicFunction(EightPuzzleFunctions::getManhattanDistance);
 		
@@ -71,8 +76,7 @@ public class QuestaoRBFS extends QuestaoaAtividade03Base {
 		agent.getActions();
 		agent.getInstrumentation();
 		
-		return search.getMetrics();*/
-		return null;
+		return search.getMetrics();
 	}
 
 	@Override
