@@ -1,7 +1,5 @@
 package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.greedybestfirstsearch;
 
-import java.util.function.ToDoubleFunction;
-
 import aima.core.agent.Action;
 import aima.core.agent.Agent;
 import aima.core.agent.impl.DynamicPercept;
@@ -14,7 +12,6 @@ import aima.core.environment.map.MapFunctions;
 import aima.core.environment.map.MoveToAction;
 import aima.core.environment.map.SimpleMapAgent;
 import aima.core.environment.map.SimplifiedRoadMapOfRomania;
-import aima.core.search.agent.SearchAgent;
 import aima.core.search.framework.Metrics;
 import aima.core.search.framework.Node;
 import aima.core.search.framework.problem.Problem;
@@ -28,7 +25,6 @@ public class QuestaoGreedyBestFirstSearch extends QuestaoaAtividade03Base{
 
 	@Override
 	public Metrics problemaDoCaixeiroViajante() {
-		// TODO Auto-generated method stub
 		ExtendableMap map = new ExtendableMap();
 		SimplifiedRoadMapOfRomania.initMap(map);
 		MapEnvironment env = new MapEnvironment(map);
@@ -42,7 +38,6 @@ public class QuestaoGreedyBestFirstSearch extends QuestaoaAtividade03Base{
 
 			@Override
 			public double applyAsDouble(Node<String, MoveToAction> value) {
-				// TODO Auto-generated method stub
 				return MapFunctions. getSLD(value.getState(), destination, map);
 			}
 		};
@@ -62,20 +57,17 @@ public class QuestaoGreedyBestFirstSearch extends QuestaoaAtividade03Base{
 
 	@Override
 	public Metrics problemaDas8Rainhas() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Metrics problemaDoQuebraCabeca() {
-		// TODO Auto-generated method stub
 		Problem<EightPuzzleBoard, Action> problem = new BidirectionalEightPuzzleProblem(QuestaoaAtividade03Base.QUEBRA_CABECA_TABULEIRO);
 		GreedyBestFirstSearch<EightPuzzleBoard, Action> search;
 		
 		EvaluationFunction <EightPuzzleBoard, Action> fn = new EvaluationFunction<EightPuzzleBoard, Action>() {
 			@Override
 			public double applyAsDouble(Node<EightPuzzleBoard, Action> value) {
-				// TODO Auto-generated method stub
 				return EightPuzzleFunctions.getManhattanDistance(value);
 			}
 		};
@@ -90,7 +82,6 @@ public class QuestaoGreedyBestFirstSearch extends QuestaoaAtividade03Base{
 
 	@Override
 	public String getNome() {
-		// TODO Auto-generated method stub
 		return "3.5.1 Greedy best-first search";
 	}
 
