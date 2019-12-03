@@ -7,6 +7,7 @@ import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.QuestaoaAtivid
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.bestfirstsearch.QuestaoBestFirstSearch;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.geneticalgorithm.QuestaoGeneticAlgorithm;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.simulatedannealing.QuestaoSimulatedAnnealing;
+import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.hillclimbingsearch.*;
 
 /**
  * @author Eduardo Fillipe da Silva Reis
@@ -25,13 +26,15 @@ public class Launcher {
 		//Adicionar aqui as questões da atividade.
 		//listaDeQuestoes.add(new QuestaoSimulatedAnnealing());
 		//listaDeQuestoes.add(new QuestaoGeneticAlgorithm());
+		listaDeQuestoes.add(new QuestaoHillClimbingSearch());
 		listaDeQuestoes.add(new QuestaoBestFirstSearch());
+		
 		
 		System.out.println("-------------------------- Execução da Atividade 03 ---------------------------\n");
 		listaDeQuestoes.forEach(q -> {
 			System.out.println("QUESTÃO -> " + q.getNome() + ":");
 			q.execute();
-			System.out.println();
+			System.out.println("---------------------------------------------------------------------------\n");
 		});
 	}
 }
