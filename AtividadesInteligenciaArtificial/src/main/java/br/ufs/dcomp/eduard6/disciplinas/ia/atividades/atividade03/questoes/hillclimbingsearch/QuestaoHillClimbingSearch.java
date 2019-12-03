@@ -34,8 +34,8 @@ public class QuestaoHillClimbingSearch extends QuestaoaAtividade03Base {
 		SimplifiedRoadMapOfRomania.initMap(map);
 		MapEnvironment env = new MapEnvironment(map);
 
-		String agentLoc = SimplifiedRoadMapOfRomania.ARAD;
-		String destination = SimplifiedRoadMapOfRomania.BUCHAREST;
+		String agentLoc = CAIXEIRO_VIAJANTE_ORIGEM;
+		String destination = CAIXEIRO_VIAJANTE_ORIGEM_DESTINO;
 
 		HillClimbingSearch<String, MoveToAction> search = 
 				new HillClimbingSearch<>(MapFunctions.createSLDHeuristicFunction(destination, map));
@@ -51,9 +51,7 @@ public class QuestaoHillClimbingSearch extends QuestaoaAtividade03Base {
 	
 	@Override
 	public Metrics problemaDas8Rainhas() {
-		int boardSize = 8;
-		
-		Problem<NQueensBoard, QueenAction> problem = NQueensFunctions.createIncrementalFormulationProblem(boardSize); 
+		Problem<NQueensBoard, QueenAction> problem = QuestaoaAtividade03Base.OITO_RAINHAS_COMPLETE_PROBLEM; 
 		
 		HillClimbingSearch<NQueensBoard, QueenAction> search = 
 				new HillClimbingSearch<NQueensBoard, QueenAction>(NQueensFunctions::getNumberOfAttackingPairs);
@@ -65,10 +63,10 @@ public class QuestaoHillClimbingSearch extends QuestaoaAtividade03Base {
 
 	@Override
 	public Metrics problemaDoQuebraCabeca() {
-		EightPuzzleBoard boardWithThreeMoveSolution = new EightPuzzleBoard(new int[] { 1, 2, 5, 3, 4, 0, 6, 7, 8 });
+		Problem<EightPuzzleBoard, Action> problem = new BidirectionalEightPuzzleProblem(QuestaoaAtividade03Base.QUEBRA_CABECA_TABULEIRO);
 		
-		Problem<EightPuzzleBoard, Action> problem = new BidirectionalEightPuzzleProblem(boardWithThreeMoveSolution);
-		HillClimbingSearch<EightPuzzleBoard, Action> search = new HillClimbingSearch<EightPuzzleBoard, Action>(EightPuzzleFunctions::getManhattanDistance);
+		HillClimbingSearch<EightPuzzleBoard, Action> search = 
+				new HillClimbingSearch<EightPuzzleBoard, Action>(EightPuzzleFunctions::getManhattanDistance);
 				
 		SearchAgent<Object, EightPuzzleBoard, Action> agent = new SearchAgent<>(problem, search);
 		
