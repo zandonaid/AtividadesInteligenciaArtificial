@@ -30,6 +30,7 @@ public class Launcher {
 		listaDeQuestoes.add(new QuestaoRBFS());
 		listaDeQuestoes.add(new QuestaoHillClimbingSearch());
 		listaDeQuestoes.add(new QuestaoBestFirstSearch());
+		listaDeQuestoes.add(new QuestaoRBFS());
 		
 		
 		System.out.println("-------------------------- Execução da Atividade 03 ---------------------------\n");
