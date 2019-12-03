@@ -105,7 +105,7 @@ public class EightPuzzleGenAlgoUtil {
 			manhattanDistanceSum = EightPuzzleFunctions.
 					getManhattanDistance(new Node<EightPuzzleBoard, Action>(board));
 			
-			return manhattanDistanceSum;
+			return manhattanDistanceSum * -1;
 		}
 	}
 	
@@ -125,7 +125,7 @@ public class EightPuzzleGenAlgoUtil {
 			EightPuzzleBoard board = getBoardForIndividual(individual);
 			missPlacedTiles = EightPuzzleFunctions.getNumberOfMisplacedTiles(new Node<EightPuzzleBoard, Action>(board));
 			
-			return missPlacedTiles;
+			return missPlacedTiles * -1;
 		}
 	}
     
