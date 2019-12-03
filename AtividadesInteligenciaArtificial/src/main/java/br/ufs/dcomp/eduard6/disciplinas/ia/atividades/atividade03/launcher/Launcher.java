@@ -6,6 +6,7 @@ import java.util.List;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.QuestaoaAtividade03Base;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.bestfirstsearch.QuestaoBestFirstSearch;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.geneticalgorithm.QuestaoGeneticAlgorithm;
+import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.greedybestfirstsearch.QuestaoGreedyBestFirstSearch;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.simulatedannealing.QuestaoSimulatedAnnealing;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.hillclimbingsearch.*;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.recursivebestfirstsearch.*;
@@ -30,6 +31,7 @@ public class Launcher {
 		listaDeQuestoes.add(new QuestaoRBFS());
 		listaDeQuestoes.add(new QuestaoHillClimbingSearch());
 		listaDeQuestoes.add(new QuestaoBestFirstSearch());
+		listaDeQuestoes.add(new QuestaoGreedyBestFirstSearch());
 		listaDeQuestoes.add(new QuestaoRBFS());
 		
 		
