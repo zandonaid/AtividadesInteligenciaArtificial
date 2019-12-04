@@ -1,9 +1,5 @@
 package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.recursivebestfirstsearch;
 
-import java.awt.List;
-import java.util.Optional;
-import java.util.function.ToDoubleFunction;
-
 import aima.core.agent.Action;
 import aima.core.agent.Agent;
 import aima.core.agent.impl.DynamicPercept;
@@ -18,27 +14,13 @@ import aima.core.environment.map.SimpleMapAgent;
 import aima.core.environment.map.SimplifiedRoadMapOfRomania;
 import aima.core.environment.nqueens.NQueensBoard;
 import aima.core.environment.nqueens.NQueensFunctions;
-import aima.core.environment.nqueens.NQueensGenAlgoUtil;
 import aima.core.environment.nqueens.QueenAction;
 import aima.core.search.agent.SearchAgent;
 import aima.core.search.framework.Metrics;
 import aima.core.search.framework.Node;
-import aima.core.search.framework.SearchForActions;
 import aima.core.search.framework.problem.Problem;
-import aima.core.search.framework.qsearch.GraphSearch;
-import aima.core.search.framework.qsearch.QueueSearch;
-import aima.core.search.informed.AStarSearch;
-import aima.core.search.informed.BestFirstSearch;
 import aima.core.search.informed.EvaluationFunction;
-import aima.core.search.informed.GreedyBestFirstSearch;
 import aima.core.search.informed.RecursiveBestFirstSearch;
-import aima.core.search.local.FitnessFunction;
-import aima.core.search.local.GeneticAlgorithm;
-import aima.core.search.local.HillClimbingSearch;
-import aima.core.search.local.Individual;
-import aima.core.search.local.Scheduler;
-import aima.core.search.uninformed.BreadthFirstSearch;
-import aima.core.search.uninformed.DepthLimitedSearch;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.QuestaoaAtividade03Base;
 
 /**
