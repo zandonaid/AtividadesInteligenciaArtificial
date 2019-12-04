@@ -27,6 +27,7 @@ import aima.core.search.framework.SearchForActions;
 import aima.core.search.framework.problem.Problem;
 import aima.core.search.framework.qsearch.GraphSearch;
 import aima.core.search.framework.qsearch.QueueSearch;
+import aima.core.search.informed.AStarSearch;
 import aima.core.search.informed.BestFirstSearch;
 import aima.core.search.informed.EvaluationFunction;
 import aima.core.search.informed.GreedyBestFirstSearch;
@@ -54,7 +55,21 @@ public class QuestaoRBFS extends QuestaoaAtividade03Base {
 	
 	@Override
 	public Metrics problemaDas8Rainhas() {
-		return null;
+		Problem<NQueensBoard, QueenAction> problem = QuestaoaAtividade03Base.OITO_RAINHAS_COMPLETE_PROBLEM;
+		
+		SearchForActions <NQueensBoard, QueenAction> search = 
+				new RecursiveBestFirstSearch<NQueensBoard, QueenAction>(new EvaluationFunction<NQueensBoard, QueenAction>() {
+				    @Override
+				    public double applyAsDouble(Node<NQueensBoard, QueenAction> value) {
+				        return NQueensFunctions.getNumberOfAttackingPairs(value);
+				    }
+                }, true);
+		
+		//search.setHeuristicFunction(NQueensFunctions::getNumberOfAttackingPairs);
+		
+		search.findActions(problem);
+		
+		return search.getMetrics();
 	}
 	
 	@Override
