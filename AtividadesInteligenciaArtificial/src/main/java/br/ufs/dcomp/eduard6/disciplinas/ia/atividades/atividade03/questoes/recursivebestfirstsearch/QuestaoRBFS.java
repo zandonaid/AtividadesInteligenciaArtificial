@@ -38,7 +38,7 @@ public class QuestaoRBFS extends QuestaoaAtividade03Base {
 		MapEnvironment env = new MapEnvironment(map);
 
 		String agentLoc = CAIXEIRO_VIAJANTE_ORIGEM;
-		String destination = CAIXEIRO_VIAJANTE_ORIGEM_DESTINO;
+		String destination = CAIXEIRO_VIAJANTE_DESTINO;
 		
 		RecursiveBestFirstSearch<String, MoveToAction> search = 
 				new RecursiveBestFirstSearch<String, MoveToAction>(new EvaluationFunction<String, MoveToAction>() {

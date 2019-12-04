@@ -35,7 +35,7 @@ public class QuestaoHillClimbingSearch extends QuestaoaAtividade03Base {
 		MapEnvironment env = new MapEnvironment(map);
 
 		String agentLoc = CAIXEIRO_VIAJANTE_ORIGEM;
-		String destination = CAIXEIRO_VIAJANTE_ORIGEM_DESTINO;
+		String destination = CAIXEIRO_VIAJANTE_DESTINO;
 
 		HillClimbingSearch<String, MoveToAction> search = 
 				new HillClimbingSearch<>(MapFunctions.createSLDHeuristicFunction(destination, map));

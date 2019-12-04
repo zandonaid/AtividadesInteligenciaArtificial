@@ -41,7 +41,7 @@ public abstract class QuestaoaAtividade03Base extends QuestaoExecutavel {
 	 * Destino no problema do caxeiro viajante. 
 	 * 
 	 */
-	public static final String CAIXEIRO_VIAJANTE_ORIGEM_DESTINO = SimplifiedRoadMapOfRomania.BUCHAREST;
+	public static final String CAIXEIRO_VIAJANTE_DESTINO = SimplifiedRoadMapOfRomania.BUCHAREST;
 	
 	/**
 	 * Tabuleiro inicial do problema do quebra cabeças. Pode ser resolvido em 3 movimentos. 
