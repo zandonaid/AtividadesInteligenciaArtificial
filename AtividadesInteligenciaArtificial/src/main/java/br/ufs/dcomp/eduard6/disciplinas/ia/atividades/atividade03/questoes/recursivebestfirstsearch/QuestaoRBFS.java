@@ -50,14 +50,36 @@ public class QuestaoRBFS extends QuestaoaAtividade03Base {
 
 	@Override
 	public Metrics problemaDoCaixeiroViajante() {
-		return null;
+		
+		ExtendableMap map = new ExtendableMap();
+		SimplifiedRoadMapOfRomania.initMap(map);
+		MapEnvironment env = new MapEnvironment(map);
+
+		String agentLoc = CAIXEIRO_VIAJANTE_ORIGEM;
+		String destination = CAIXEIRO_VIAJANTE_ORIGEM_DESTINO;
+		
+		RecursiveBestFirstSearch<String, MoveToAction> search = 
+				new RecursiveBestFirstSearch<String, MoveToAction>(new EvaluationFunction<String, MoveToAction>() {
+				    @Override
+					public double applyAsDouble(Node<String, MoveToAction> arg0) {
+						// TODO Auto-generated method stub
+						return MapFunctions. getSLD(arg0.getState(), destination, map);
+					}
+                }, true);
+		
+		Agent<DynamicPercept, MoveToAction> agent;
+		agent = new SimpleMapAgent(map, search, destination);
+
+		env.addAgent(agent, agentLoc);
+		env.stepUntilDone();
+		return search.getMetrics();
 	}
 	
 	@Override
 	public Metrics problemaDas8Rainhas() {
-		Problem<NQueensBoard, QueenAction> problem = QuestaoaAtividade03Base.OITO_RAINHAS_COMPLETE_PROBLEM;
+		Problem<NQueensBoard, QueenAction> problem = QuestaoaAtividade03Base.OITO_RAINHAS_INCREMENTAL_PROBLEM;
 		
-		SearchForActions <NQueensBoard, QueenAction> search = 
+		RecursiveBestFirstSearch<NQueensBoard, QueenAction> search = 
 				new RecursiveBestFirstSearch<NQueensBoard, QueenAction>(new EvaluationFunction<NQueensBoard, QueenAction>() {
 				    @Override
 				    public double applyAsDouble(Node<NQueensBoard, QueenAction> value) {
@@ -65,7 +87,7 @@ public class QuestaoRBFS extends QuestaoaAtividade03Base {
 				    }
                 }, true);
 		
-		//search.setHeuristicFunction(NQueensFunctions::getNumberOfAttackingPairs);
+		search.setHeuristicFunction(NQueensFunctions::getNumberOfAttackingPairs);
 		
 		search.findActions(problem);
 		
