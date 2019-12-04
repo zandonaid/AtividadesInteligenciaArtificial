@@ -8,8 +8,7 @@ import java.util.Random;
 import aima.core.search.local.GeneticAlgorithm;
 import aima.core.search.local.Individual;
 
-public class EigthPuzzleGenAlgoImplementation
-        extends GeneticAlgorithm<Integer> {
+public class EigthPuzzleGenAlgoImplementation extends GeneticAlgorithm<Integer> {
 
     public EigthPuzzleGenAlgoImplementation(int individualLength,
             Collection<Integer> finiteAlphabet, double mutationProbability) {
@@ -27,12 +26,20 @@ public class EigthPuzzleGenAlgoImplementation
             Individual<Integer> y) {
         int c = randomOffset(individualLength);
         
-        List<Integer> childRepresentation = new ArrayList<>();
+        List<Integer> childRepresentation = new ArrayList<>(x.getRepresentation());
         
+        List<Integer> alphabet = new ArrayList<Integer>(this.finiteAlphabet);
+        Random rnd = new Random();
         
-        
-        childRepresentation.addAll(x.getRepresentation().subList(0, c));
-        childRepresentation.addAll(y.getRepresentation().subList(c, individualLength));
+        for (int i = 0; i < c; i++) {
+        	int index = rnd.nextInt(alphabet.size());
+        	int element = alphabet.get(index);
+        	int iX = x.getRepresentation().indexOf(element);
+        	int iY = y.getRepresentation().get(iX);
+        	
+        	childRepresentation.set(iY, element);
+        	alphabet.remove(index);
+        }
 
         return new Individual<>(childRepresentation);
     }
