@@ -41,26 +41,31 @@ public class QuestaoGeneticAlgorithm extends QuestaoaAtividade03Base {
 		return ga.getMetrics();
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public Metrics problemaDoQuebraCabeca() {
 		FitnessFunction<Integer> fitnessFunctionMahattan = EightPuzzleGenAlgoUtil.getFitnessFunctionByManhattanDistance();
 		FitnessFunction<Integer> fitnessFunctionMissPlaced = EightPuzzleGenAlgoUtil.getFitnessFunctionByMissPlacedTiles();
+		
+		Predicate<Individual<Integer>> goalTest = EightPuzzleGenAlgoUtil.getEightPuzzleGoalTest();
+
 		
 		Set<Individual<Integer>> individualsPopulation = new HashSet<>();
 		for (int i = 0; i < 50; i++) {
 			individualsPopulation.add(EightPuzzleGenAlgoUtil.getRandomIndividual());
 		}
 		
-		GeneticAlgorithm<Integer> ga = new GeneticAlgorithm<Integer>(8, EightPuzzleGenAlgoUtil.getAlphabet(), 0.15);
+		GeneticAlgorithm<Integer> ga = new GeneticAlgorithm<Integer>(9, EightPuzzleGenAlgoUtil.getAlphabet(), 0.15);
 		
-		ga.geneticAlgorithm(individualsPopulation, fitnessFunctionMahattan, 0);
+		Individual<Integer> i = ga.geneticAlgorithm(individualsPopulation, fitnessFunctionMissPlaced, goalTest, 5000L);
+		
+		//System.out.println(EightPuzzleGenAlgoUtil.getBoardForIndividual(i).toString());
 		
 		return ga.getMetrics();
 	}
 
 	@Override
 	public String getNome() {
-		return "Questão 4.1.3 - Genetic algorithms";
+		return "Questão 4.1.3 - Genetic algorithms (Resolvido apenas para 8 Rainhas)";
 	}
-
 }
