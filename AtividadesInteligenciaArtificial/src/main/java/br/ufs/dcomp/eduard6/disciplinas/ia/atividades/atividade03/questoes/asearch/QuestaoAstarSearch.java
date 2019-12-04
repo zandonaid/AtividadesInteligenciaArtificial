@@ -1,4 +1,4 @@
-package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.greedybestfirstsearch;
+package br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.asearch;
 
 import aima.core.agent.Action;
 import aima.core.agent.Agent;
@@ -20,14 +20,15 @@ import aima.core.search.framework.Node;
 import aima.core.search.framework.problem.Problem;
 import aima.core.search.framework.qsearch.GraphSearch;
 import aima.core.search.framework.qsearch.QueueSearch;
+import aima.core.search.informed.AStarSearch;
 import aima.core.search.informed.EvaluationFunction;
-import aima.core.search.informed.GreedyBestFirstSearch;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.QuestaoaAtividade03Base;
 
-public class QuestaoGreedyBestFirstSearch extends QuestaoaAtividade03Base{
+public class QuestaoAstarSearch extends QuestaoaAtividade03Base {
 
 	@Override
 	public Metrics problemaDoCaixeiroViajante() {
+		// TODO Auto-generated method stub
 		ExtendableMap map = new ExtendableMap();
 		SimplifiedRoadMapOfRomania.initMap(map);
 		MapEnvironment env = new MapEnvironment(map);
@@ -35,33 +36,32 @@ public class QuestaoGreedyBestFirstSearch extends QuestaoaAtividade03Base{
 		String agentLoc = SimplifiedRoadMapOfRomania.ARAD;
 		String destination = SimplifiedRoadMapOfRomania.BUCHAREST;
 		
-		GreedyBestFirstSearch<String, MoveToAction> search;
-		
-		EvaluationFunction<String, MoveToAction> fn = new EvaluationFunction<String, MoveToAction>() {
-
+		AStarSearch<String, MoveToAction> search;
+		EvaluationFunction <String, MoveToAction> fn = new EvaluationFunction<String, MoveToAction>() {
 			@Override
-			public double applyAsDouble(Node<String, MoveToAction> value) {
-				return MapFunctions. getSLD(value.getState(), destination, map);
+			public double applyAsDouble(Node<String, MoveToAction> arg0) {
+				// TODO Auto-generated method stub
+				return MapFunctions. getSLD(arg0.getState(), destination, map);
 			}
-		};
+		}; 
 		
 		QueueSearch<String, MoveToAction> fila = (new GraphSearch<>());
 		
-		search = new GreedyBestFirstSearch<String, MoveToAction>(fila, fn);
-		
+		search = new AStarSearch<String, MoveToAction>(fila, fn);
 		Agent<DynamicPercept, MoveToAction> agent;
 		agent = new SimpleMapAgent(map, search, destination);
 
 		env.addAgent(agent, agentLoc);
 		env.stepUntilDone();
 		return search.getMetrics();
-		
 	}
 
 	@Override
 	public Metrics problemaDas8Rainhas() {
+		// TODO Auto-generated method stub
 		Problem<NQueensBoard, QueenAction> problema = QuestaoaAtividade03Base.OITO_RAINHAS_COMPLETE_PROBLEM;
-		GreedyBestFirstSearch<NQueensBoard, QueenAction> search;
+		AStarSearch<NQueensBoard, QueenAction> search;
+		
 		EvaluationFunction <NQueensBoard, QueenAction> fn = new EvaluationFunction<NQueensBoard, QueenAction>() {
 			@Override
 			public double applyAsDouble(Node<NQueensBoard, QueenAction> arg0) {
@@ -71,7 +71,7 @@ public class QuestaoGreedyBestFirstSearch extends QuestaoaAtividade03Base{
 		};
 		
 		QueueSearch<NQueensBoard, QueenAction> fila = (new GraphSearch<>());
-		search = new GreedyBestFirstSearch<NQueensBoard, QueenAction>(fila, fn);
+		search = new AStarSearch<NQueensBoard, QueenAction>(fila, fn);
 		
 		search.findActions(problema);
 		return search.getMetrics();
@@ -79,27 +79,31 @@ public class QuestaoGreedyBestFirstSearch extends QuestaoaAtividade03Base{
 
 	@Override
 	public Metrics problemaDoQuebraCabeca() {
+		// TODO Auto-generated method stub
+		
+		
 		Problem<EightPuzzleBoard, Action> problem = new BidirectionalEightPuzzleProblem(QuestaoaAtividade03Base.QUEBRA_CABECA_TABULEIRO);
-		GreedyBestFirstSearch<EightPuzzleBoard, Action> search;
+		AStarSearch<EightPuzzleBoard, Action> search;
 		
 		EvaluationFunction <EightPuzzleBoard, Action> fn = new EvaluationFunction<EightPuzzleBoard, Action>() {
 			@Override
-			public double applyAsDouble(Node<EightPuzzleBoard, Action> value) {
-				return EightPuzzleFunctions.getManhattanDistance(value);
+			public double applyAsDouble(Node<EightPuzzleBoard, Action> arg0) {
+				// TODO Auto-generated method stub
+				return EightPuzzleFunctions.getManhattanDistance(arg0);
 			}
 		};
 		
 		QueueSearch<EightPuzzleBoard, Action> fila = (new GraphSearch<>());
-		search = new GreedyBestFirstSearch<EightPuzzleBoard, Action>(fila, fn);
+		search = new AStarSearch<EightPuzzleBoard, Action>(fila, fn);
 		
-		search.findActions(problem);
-		
+		search.findState(problem);
 		return search.getMetrics();
 	}
 
 	@Override
 	public String getNome() {
-		return "3.5.1 Greedy best-first search";
+		// TODO Auto-generated method stub
+		return "3.5.2 Questão A* Search";
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.QuestaoaAtividade03Base;
+import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.asearch.QuestaoAstarSearch;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.bestfirstsearch.QuestaoBestFirstSearch;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.geneticalgorithm.QuestaoGeneticAlgorithm;
 import br.ufs.dcomp.eduard6.disciplinas.ia.atividades.atividade03.questoes.greedybestfirstsearch.QuestaoGreedyBestFirstSearch;
@@ -33,6 +34,7 @@ public class Launcher {
 		listaDeQuestoes.add(new QuestaoBestFirstSearch());
 		listaDeQuestoes.add(new QuestaoGreedyBestFirstSearch());
 		listaDeQuestoes.add(new QuestaoRBFS());
+		listaDeQuestoes.add(new QuestaoAstarSearch());
 		
 		
 		System.out.println("-------------------------- Execução da Atividade 03 ---------------------------\n");
