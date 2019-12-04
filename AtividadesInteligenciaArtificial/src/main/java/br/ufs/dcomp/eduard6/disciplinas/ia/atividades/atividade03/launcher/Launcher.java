@@ -27,15 +27,13 @@ public class Launcher {
 		List<QuestaoaAtividade03Base> listaDeQuestoes = new ArrayList<>(8);
 		
 		//Adicionar aqui as questões da atividade.
-		//listaDeQuestoes.add(new QuestaoSimulatedAnnealing());
-		//listaDeQuestoes.add(new QuestaoGeneticAlgorithm());
-		listaDeQuestoes.add(new QuestaoRBFS());
-		listaDeQuestoes.add(new QuestaoHillClimbingSearch());
 		listaDeQuestoes.add(new QuestaoBestFirstSearch());
 		listaDeQuestoes.add(new QuestaoGreedyBestFirstSearch());
-		listaDeQuestoes.add(new QuestaoRBFS());
 		listaDeQuestoes.add(new QuestaoAstarSearch());
-		
+		listaDeQuestoes.add(new QuestaoRBFS());
+		listaDeQuestoes.add(new QuestaoHillClimbingSearch());
+		listaDeQuestoes.add(new QuestaoSimulatedAnnealing());
+		listaDeQuestoes.add(new QuestaoGeneticAlgorithm());
 		
 		System.out.println("-------------------------- Execução da Atividade 03 ---------------------------\n");
 		listaDeQuestoes.forEach(q -> {
