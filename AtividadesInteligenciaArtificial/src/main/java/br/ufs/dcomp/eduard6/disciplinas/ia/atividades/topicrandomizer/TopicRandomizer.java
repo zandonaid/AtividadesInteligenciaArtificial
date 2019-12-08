@@ -29,9 +29,7 @@ public class TopicRandomizer {
     
     public static void main(String[] args) {
         Random rGenerator = new Random();
-        ArrayList<String> topicos = new ArrayList<>(Arrays.asList("Best-first Search, Greedy best-first search, A* Search",
-        		"RBFS – Recursive best-first search, Hill-climbing search",
-        		"Simulated annealing, Genetic Algorithms"));
+        ArrayList<String> topicos = new ArrayList<>(Arrays.asList("5.5","5.6","5.7 e 5.8"));
         for (Alunos aluno : Alunos.values()) {
             int t = rGenerator.nextInt(topicos.size());
             aluno.topico = topicos.get(t);
